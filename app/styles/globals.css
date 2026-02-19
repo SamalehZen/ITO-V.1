@@ -1,0 +1,241 @@
+@import 'tailwindcss';
+@source '@/app';
+@source '@/lib';
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar-background: var(--sidebar-background);
+  --color-sidebar-active: var(--sidebar-active);
+  --color-sidebar-active-text: var(--sidebar-active-text);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #1f1f1f;
+    --card: #fafafa;
+    --card-foreground: #1f1f1f;
+    --popover: #ffffff;
+    --popover-foreground: #1f1f1f;
+    --primary: #1f1f1f;
+    --primary-foreground: #fafafa;
+    --secondary: #f5f5f5;
+    --secondary-foreground: #1f1f1f;
+    --muted: #f5f5f5;
+    --muted-foreground: rgba(31,31,31,0.65);
+    --accent: #fafafa;
+    --accent-foreground: #1f1f1f;
+    --destructive: hsl(0 84.2% 60.2%);
+    --destructive-foreground: hsl(0 0% 98%);
+    --border: rgba(31,31,31,0.04);
+    --input: rgba(31,31,31,0.08);
+    --ring: #1f1f1f;
+    --sidebar-background: #fafafa;
+    --sidebar-active: #1f1f1f;
+    --sidebar-active-text: #ffffff;
+    --chart-1: hsl(12 76% 61%);
+    --chart-2: hsl(173 58% 39%);
+    --chart-3: hsl(197 37% 24%);
+    --chart-4: hsl(43 74% 66%);
+    --chart-5: hsl(27 87% 67%);
+    --radius: 20px;
+    /* Premium design tokens */
+    --color-surface: #fafafa;
+    --color-muted-bg: #f5f5f5;
+    --color-text: #1f1f1f;
+    --color-subtext: rgba(31,31,31,0.65);
+    --shadow-soft: 0 8px 24px rgba(31,31,31,0.06);
+    --shadow-card: 0 4px 12px rgba(31,31,31,0.05);
+    --border-muted: 1px solid rgba(31,31,31,0.04);
+    --radius-lg: 20px;
+    --radius-pill: 50%;
+  }
+
+  /* Custom scrollbar styling */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d4d4d4 transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #d4d4d4;
+    border-radius: 9999px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #a3a3a3;
+  }
+
+  .dark {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --card: #141414;
+    --card-foreground: #fafafa;
+    --popover: #141414;
+    --popover-foreground: #fafafa;
+    --primary: #fafafa;
+    --primary-foreground: #0a0a0a;
+    --secondary: #1a1a1a;
+    --secondary-foreground: #fafafa;
+    --muted: #1a1a1a;
+    --muted-foreground: rgba(250,250,250,0.65);
+    --accent: #1a1a1a;
+    --accent-foreground: #fafafa;
+    --destructive: hsl(0 62.8% 30.6%);
+    --destructive-foreground: hsl(0 0% 98%);
+    --border: rgba(250,250,250,0.06);
+    --input: rgba(250,250,250,0.1);
+    --ring: #fafafa;
+    --sidebar-background: #141414;
+    --sidebar-active: #fafafa;
+    --sidebar-active-text: #0a0a0a;
+    --chart-1: hsl(220 70% 50%);
+    --chart-2: hsl(160 60% 45%);
+    --chart-3: hsl(30 80% 55%);
+    --chart-4: hsl(280 65% 60%);
+    --chart-5: hsl(340 75% 55%);
+    --color-surface: #141414;
+    --color-muted-bg: #1a1a1a;
+    --color-text: #fafafa;
+    --color-subtext: rgba(250,250,250,0.65);
+    --shadow-soft: 0 8px 24px rgba(0,0,0,0.3);
+    --shadow-card: 0 4px 12px rgba(0,0,0,0.25);
+    --border-muted: 1px solid rgba(250,250,250,0.06);
+  }
+
+  /* Dark mode scrollbar */
+  .dark * {
+    scrollbar-color: rgb(64 64 64) transparent;
+  }
+
+  .dark *::-webkit-scrollbar-thumb {
+    background-color: rgb(64 64 64);
+  }
+
+  .dark *::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(82 82 82);
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Adaptive Performance Engine ─── */
+:root {
+  --perf-animation-multiplier: 1;
+  --perf-blur: 1;
+  --perf-shadows: 1;
+  --perf-backdrop-blur: 1;
+}
+
+/* Low tier: disable expensive visual effects */
+[data-perf-tier="low"] * {
+  transition-duration: 0.01ms !important;
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+}
+
+[data-perf-tier="low"] [class*="shadow-"],
+[data-perf-tier="low"] .shadow-soft,
+[data-perf-tier="low"] .shadow-card {
+  box-shadow: none !important;
+}
+
+[data-perf-tier="low"] [class*="backdrop-blur"],
+[data-perf-tier="low"] [class*="blur-"] {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
+}
+
+/* Balanced: lighter shadows */
+[data-perf-tier="balanced"] .shadow-soft {
+  box-shadow: 0 4px 8px rgba(31,31,31,0.03) !important;
+}
+
+/* Low tier: simplify scrolling */
+[data-perf-tier="low"] * {
+  scroll-behavior: auto !important;
+}
+
+/* Ultra: smooth scrolling */
+[data-perf-tier="ultra"] * {
+  scroll-behavior: smooth;
+}
+
+/* Hide particle/decorative elements for perf */
+.perf-no-particles .decorative-particle,
+.perf-no-particles [data-decorative="true"] {
+  display: none !important;
+}
+
+/* Low quality: reduce image rendering effort */
+.perf-low-quality img {
+  image-rendering: pixelated;
+}
+
+/* Low tier: force GPU compositing off to reduce memory */
+[data-perf-tier="low"] * {
+  will-change: auto !important;
+  transform: none !important;
+}
+
+/* Except elements that need transform for layout */
+[data-perf-tier="low"] [data-keep-transform="true"] {
+  transform: unset !important;
+}
